@@ -90,7 +90,7 @@ function normalize(page: ApiPage) {
     page: page.page ?? 0,
     totalPages: page.totalPages ?? (records.length ? 1 : 0),
     totalElements: page.totalElements ?? records.length,
-    mode: "live" as const,
+    mode: process.env.EUIPO_ENV === "sandbox" ? "sandbox" as const : "live" as const,
   };
 }
 

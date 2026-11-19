@@ -10,7 +10,7 @@ A small Next.js search portal for trademark names in the EUIPO Trademark Search 
 4. Add your EUIPO API application Client ID and Client Secret to .env.local.
 5. Run npm run dev and open http://localhost:3000.
 
-With both credentials omitted, the app runs in Demo mode and returns two explicitly synthetic sample rows. If only one credential is set, it reports incomplete configuration instead of presenting samples.
+With both credentials omitted, the app runs in Demo mode and returns two explicitly synthetic sample rows. If only one credential is set, it reports incomplete configuration instead of presenting samples. Sandbox responses are labeled as test data; EUIPO's sandbox is not a complete mirror of its production register.
 
 ## EUIPO access setup
 

@@ -8,7 +8,7 @@ type Trademark = {
 };
 type SearchResponse = {
   records: Trademark[]; page: number; totalPages: number; totalElements: number;
-  mode: "live" | "demo"; message?: string;
+  mode: "live" | "sandbox" | "demo"; message?: string;
 };
 const PAGE_SIZE = 10;
 
@@ -88,9 +88,10 @@ export default function Home() {
       {submittedTerm && !error && <section className="results" aria-live="polite">
         <div className="results-heading">
           <div><div className="eyebrow">SEARCH RESULTS</div><h2>“{submittedTerm}”</h2></div>
-          {data && <div className="result-meta"><span className={"mode-pill " + data.mode}>{data.mode === "live" ? "LIVE · EUIPO" : "DEMO DATA"}</span>{data.totalElements > 0 && <span className="result-count">{range}</span>}</div>}
+          {data && <div className="result-meta"><span className={"mode-pill " + data.mode}>{data.mode === "live" ? "LIVE · EUIPO" : data.mode === "sandbox" ? "SANDBOX · TEST DATA" : "DEMO DATA"}</span>{data.totalElements > 0 && <span className="result-count">{range}</span>}</div>}
         </div>
         {data?.mode === "demo" && <div className="demo-notice"><strong>Demo mode</strong> — no EUIPO credentials are configured. These illustrative sample rows are synthetic and are not real trademark records.</div>}
+        {data?.mode === "sandbox" && <div className="demo-notice"><strong>Sandbox environment</strong> — EUIPO’s sandbox returns realistic test data, not the complete production register. Its results will differ from TMview’s multi-office database.</div>}
         {loading && !data ? <div className="loading-row"><span className="spinner dark" /> Retrieving trademark records…</div> : data && data.records.length === 0 ? <div className="empty-state"><span className="empty-symbol">⌕</span><strong>No matches found</strong><span>Try a different spelling or a shorter search term.</span></div> : data && <>
           <div className="table-wrap"><table>
             <thead><tr><th>TRADEMARK</th><th>APPLICATION / REGISTRATION</th><th>OWNER / APPLICANT</th><th>STATUS</th><th>NICE CLASS</th><th>JURISDICTION</th><th>FILING DATE</th></tr></thead>

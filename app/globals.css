@@ -44,6 +44,7 @@ h1 span { color:#7b8986; }
 .result-meta { display:flex; align-items:center; gap:13px; padding-bottom:4px; }
 .mode-pill { display:inline-flex; align-items:center; min-height:23px; padding:0 8px; border:1px solid #d7e7e0; border-radius:4px; color:var(--green); background:#f1f8f4; font-size:9px; font-weight:700; letter-spacing:.55px; }
 .mode-pill.demo { color:#865e1f; border-color:#efdfbd; background:#fcf7eb; }
+.mode-pill.sandbox { color:#865e1f; border-color:#efdfbd; background:#fcf7eb; }
 .result-count { color:var(--muted); font-size:12px; }
 .demo-notice { margin-bottom:14px; padding:12px 14px; border:1px solid #f0dfbb; border-radius:6px; color:#735a2f; background:#fffbf2; font-size:12px; line-height:1.6; }
 .demo-notice strong { margin-right:4px; }
